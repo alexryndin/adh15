@@ -38,7 +38,7 @@ def kafka(upgrade_type=None):
     kafka_server_config = mutable_config_dict(params.config['configurations']['kafka-broker'])
     # This still has an issue of hostnames being alphabetically out-of-order for broker.id in HDP-2.2.
     # Starting in HDP 2.3, Kafka handles the generation of broker.id so Ambari doesn't have to.
-
+    effective_version = None
 #    effective_version = params.hdp_stack_version if upgrade_type is None else format_hdp_stack_version(params.version)
     Logger.info(format("Effective stack version: {effective_version}"))
 
