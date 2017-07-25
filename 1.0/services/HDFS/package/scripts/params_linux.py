@@ -374,6 +374,9 @@ java_share_dir = '/usr/share/java'
 is_https_enabled = config['configurations']['hdfs-site']['dfs.https.enable'] if \
   not is_empty(config['configurations']['hdfs-site']['dfs.https.enable']) else False
 
+previous_jdbc_jar_name = None
+previous_jdbc_jar = None
+
 if has_ranger_admin:
   enable_ranger_hdfs = (config['configurations']['ranger-hdfs-plugin-properties']['ranger-hdfs-plugin-enabled'].lower() == 'yes')
   xa_audit_db_password = unicode(config['configurations']['admin-properties']['audit_db_password'])
@@ -381,7 +384,7 @@ if has_ranger_admin:
   xa_audit_db_flavor = (config['configurations']['admin-properties']['DB_FLAVOR']).lower()
 
   if xa_audit_db_flavor == 'mysql':
-    jdbc_symlink_name = "mysql-jdbc-driver.jar"
+    jdbc_symlink_name = "mysql-connector-java.jar"
     jdbc_jar_name = "mysql-connector-java.jar"
     audit_jdbc_url = format('jdbc:mysql://{xa_db_host}/{xa_audit_db_name}')
     jdbc_driver = "com.mysql.jdbc.Driver"

@@ -84,7 +84,7 @@ if has_ranger_admin:
 java_share_dir = '/usr/share/java'
 
 if db_flavor == 'mysql':
-  jdbc_symlink_name = "mysql-jdbc-driver.jar"
+  jdbc_symlink_name = "mysql-connector-java.jar"
   jdbc_jar_name = "mysql-connector-java.jar"
   db_jdbc_url = format('jdbc:log4jdbc:mysql://{db_host}/{db_name}')
   db_jdbc_driver = "net.sf.log4jdbc.DriverSpy"
@@ -121,6 +121,7 @@ elif db_flavor == 'sqla':
 downloaded_custom_connector = format("{tmp_dir}/{jdbc_jar_name}")
 
 driver_curl_source = format("{jdk_location}/{jdbc_symlink_name}")
+previous_jdbc_jar = None
 driver_curl_target = format("{java_share_dir}/{jdbc_jar_name}")
 ews_lib_jar_path = format("{kms_home}/ews/webapp/lib/{jdbc_jar_name}")
 # TODO: Remove that shit!!!!!
@@ -135,7 +136,7 @@ if db_flavor == 'sqla':
 
 if has_ranger_admin:
   if xa_audit_db_flavor == 'mysql':
-    jdbc_symlink = "mysql-jdbc-driver.jar"
+    jdbc_symlink = "mysql-connector-java.jar"
     jdbc_jar = "mysql-connector-java.jar"
     audit_jdbc_url = format('jdbc:mysql://{xa_db_host}/{xa_audit_db_name}')
     jdbc_driver = "com.mysql.jdbc.Driver"
