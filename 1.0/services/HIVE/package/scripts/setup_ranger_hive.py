@@ -22,7 +22,7 @@ from resource_management.core.logger import Logger
 def setup_ranger_hive(upgrade_type = None):
   import params
 
-  if params.enable_ranger_hive:
+  if params.has_ranger_admin:
 
     stack_version = None
 

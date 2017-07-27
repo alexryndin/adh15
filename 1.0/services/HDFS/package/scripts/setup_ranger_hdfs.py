@@ -27,7 +27,7 @@ from resource_management.libraries.functions.version import compare_versions
 def setup_ranger_hdfs(upgrade_type=None):
   import params
 
-  if params.enable_ranger_hdfs:
+  if params.has_ranger_admin:
 
     stack_version = None
 
