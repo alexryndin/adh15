@@ -1,3 +1,4 @@
+
 #!/usr/bin/env python
 """
 Licensed to the Apache Software Foundation (ASF) under one
@@ -19,7 +20,7 @@ limitations under the License.
 """
 from resource_management.core.resources.system import Execute
 from resource_management.libraries.functions import conf_select
-from resource_management.libraries.functions import stack_select
+from resource_management.libraries.functions import hdp_select
 from resource_management.libraries.functions.format import format
 
 def prestart(env, hdp_component):

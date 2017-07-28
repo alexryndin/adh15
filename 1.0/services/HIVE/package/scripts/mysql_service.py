@@ -26,10 +26,7 @@ def mysql_service(daemon_name=None, action='start'):
   cmd = ('service', daemon_name, action)
 
   if action == 'status':
-    try:
-      Execute(status_cmd)
-    except Fail:
-      raise ComponentIsNotRunning()
+    Execute(status_cmd)
   elif action == 'stop':
     import params
     Execute(cmd,
